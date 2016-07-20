@@ -1,0 +1,15 @@
+{
+  "name": "generator-react-typescript",
+  "version": "0.1.0",
+  "description": "Yeoman generator for Typescript/React stack",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Ruxo Zheng",
+  "dependencies": {
+    "yeoman-generator": "^0.24.1"
+  }
+}
