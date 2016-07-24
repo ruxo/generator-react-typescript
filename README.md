@@ -23,4 +23,4 @@ Run `yo react-typescript`
 yo react-typescript
 ```
 
-Run `webpack` for building web, then opening index.html on your browser for preview.
+Run `npm start` for preview by http://localhost:8080/.
