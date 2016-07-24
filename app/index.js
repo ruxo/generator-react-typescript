@@ -28,13 +28,14 @@ module.exports = generators.Base.extend({
       this.destinationPath('package.json'),
       { name: this.answers.slug
       , version: '1.0.0'
-      , description: this.answers.description }
+      , description: this.answers.description
+      , scripts: { 'start': 'webpack-dev-server --inline --content-base .' }}
     )
   },
   installNpmLibs() {
     const reacts = ['react', 'react-dom']
     const additions = this.answers.use_redux? ['redux', 'react-redux'] : []
-    const webpacks = ['webpack-bundle-tracker', 'ts-loader', 'source-map-loader']
+    const webpacks = ['webpack-bundle-tracker', 'ts-loader', 'source-map-loader', 'webpack-dev-server']
     const mandatoryApps = ['typescript', 'webpack']
     this.npmInstall(reacts.concat(additions).concat(webpacks).concat(mandatoryApps), { saveDev: true })
   },
@@ -51,6 +52,6 @@ module.exports = generators.Base.extend({
     this.spawnCommand('typings', ['install', '--save', '--global'].concat(types))
   },
   end() {
-    this.log('Run `webpack` once and just open file `index.html` to see the project works. Happy time!')
+    this.log('Run `npm start` to see the project works. Happy time!')
   }
 })
