@@ -29,7 +29,7 @@ module.exports = generators.Base.extend({
       { name: this.answers.slug
       , version: '1.0.0'
       , description: this.answers.description
-      , scripts: { 'start': 'webpack-dev-server --inline --content-base .' }}
+      , scripts: { 'start': 'webpack-dev-server --inline' }}
     )
   },
   installNpmLibs() {

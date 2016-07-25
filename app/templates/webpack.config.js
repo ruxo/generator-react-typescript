@@ -7,6 +7,7 @@ module.exports = {
   entry: { main: ['./src/js/index.tsx'] },
   output: {
     path: path.resolve('./bundles'),
+    publicPath: '/bundles/',  // Used by webpack-dev-server
     // or '[name]-[hash].js' if you can dynamically load JS, so you don't have to always invalidate cache.
     filename: '[name].js'
   },
