@@ -47,9 +47,13 @@ module.exports = generators.Base.extend({
   },
   instal() {
     const reactTypes = ['dt~react', 'dt~react-dom']
-    const reduxTypes = ['dt~redux', 'dt~react-redux']
-    const types = reactTypes.concat(this.answers.use_redux? reduxTypes : [])
-    this.spawnCommand('typings', ['install', '--save', '--global'].concat(types))
+    const reduxTypes_global = ['dt~redux']
+    const reduxTypes_module = ['dt~react-redux']
+    const types = reactTypes.concat(this.answers.use_redux? reduxTypes_module : [])
+    this.spawnCommand('typings', ['install', '--save'].concat(types))
+    if (this.answers.use_redux) {
+      this.spawnCommand('typings', ['install', '--save', '--global'].concat(reduxTypes_global))
+    }
   },
   end() {
     this.log('Run `npm start` to see the project works. Happy time!')
